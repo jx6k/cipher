@@ -62,7 +62,7 @@ const analyse = (text) => {
         })
     }
 
-    const splitText = text.split("").toLowerCase()
+    const splitText = text.toLowerCase().split("")
 
     for (let i = 0; i < splitText.length; i++) {
         const current = frequencies.find(o => o.name == splitText[i])
