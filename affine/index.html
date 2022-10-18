@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cipher tools</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/affine.css">
+</head>
+<body>
+    <div class="container">
+        <textarea placeholder="input" class="input"></textarea>
+
+        <div class="parameters">
+            <div class="parameter">
+                <label for="gradient">gradient:</label>
+                <input type="text" value="3" id="gradient" class="gradient">
+    
+            </div>
+            <div class="parameter">
+                <label for="intercept">intercept:</label>
+                <input type="text" value="5" id="intercept" class="intercept">    
+            </div>
+       </div>
+
+        <div class="buttons">
+            <button class="encrypt">encrypt</button>
+            <button class="decrypt">decrypt</button>
+        </div>
+
+        <textarea placeholder="output" class="output" readonly></textarea>
+    </div>
+
+    <script src="../script/affine.js"></script>
+</body>
+</html>
