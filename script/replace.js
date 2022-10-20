@@ -6,7 +6,7 @@ const output = document.querySelector("textarea.output")
 const button = document.querySelector("button.analyse")
 
 const analyse = () => {
-    const replacements = replacements_box.value.split("\n")
+    const replacements = replacements_box.value.toUpperCase().split("\n")
 
     for (let i = 0; i < replacements.length; i++) {
         replacements[i] = replacements[i].split(" > ")
