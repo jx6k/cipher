@@ -1,0 +1,21 @@
+import modulus from "../modular/modulus.js"
+
+const addition = (alphabet, text, multiplier) => {
+    let result = ""
+    const split = text.toLowerCase().split("")
+
+    for (let i = 0; i < split.length; i++) {
+        const j = alphabet.findIndex(x => x == split[i])
+
+        if (j == -1) {
+            result += split[i]
+        }
+        else {
+            result += alphabet[modulus(j * multiplier, alphabet.length)]
+        }
+    }
+
+    return result
+}
+
+export default addition

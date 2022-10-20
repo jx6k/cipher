@@ -1,58 +1,19 @@
-const input = document.querySelector("textarea.input")
-const output = document.querySelector("textarea.output")
+import addition from "./methods/cipher/addition.js"
 
-const encrypter = document.querySelector("button.encrypt")
-const decrypter = document.querySelector("button.decrypt")
+const q = (a) => { return document.querySelector(a) }
 
-const shift = document.querySelector("input.shift")
+const x = {
+    input: q("textarea.input"),
+    output: q("textarea.output"),
+    encrypter: q("button.encrypt"),
+    decrypter: q("button.decrypt"),
+    shift: q("input.shift")
+}
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
 
-const mod = (a, b) => {
-    return ((a % b) + b) % b
-}
+const encrypt = (text, a) => { return addition(alphabet, text, a) }
+const decrypt = (text, a) => { return addition(alphabet, text, - a) }
 
-const encrypt = (initial, a) => {
-    const splitnitial = initial.toLowerCase().split("")
-    let final = ""
-
-    for (let i = 0; i < splitnitial.length; i++) {
-        const position = alphabet.findIndex(o => o == splitnitial[i])
-
-        console.log(position + a)
-
-        if (position != -1) {
-            final += alphabet[mod(position + a, alphabet.length)]
-        }
-        else {
-            final += splitnitial[i]
-        }
-    }
-
-    return final
-}
-
-const decrypt = (initial, a) => {
-    const splitnitial = initial.toLowerCase().split("")
-    let final = ""
-
-    for (let i = 0; i < splitnitial.length; i++) {
-        const position = alphabet.findIndex(o => o == splitnitial[i])
-
-        if (position != -1) {
-            final += alphabet[mod(position - a, alphabet.length)]
-        }
-        else {
-            final += splitnitial[i]
-        }
-    }
-
-    return final
-}
-
-encrypter.onclick = () => {
-    output.value = encrypt(input.value, parseInt(shift.value))
-}
-decrypter.onclick = () => {
-    output.value = decrypt(input.value, parseInt(shift.value))
-}
+x.encrypter.onclick = () => { x.output.value = encrypt(x.input.value, parseInt(x.shift.value)) }
+x.decrypter.onclick = () => { x.output.value = decrypt(x.input.value, parseInt(x.shift.value)) }

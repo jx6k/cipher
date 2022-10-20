@@ -12,10 +12,10 @@ const analyse = () => {
         replacements[i] = replacements[i].split(" > ")
     }
 
-    let string = input.value.toLowerCase()
+    let string = input.value.toUpperCase()
 
     for (let i = 0; i < replacements.length; i++) {
-        string = string.replaceAll(replacements[i][0], replacements[i][1].toUpperCase())
+        string = string.replaceAll(replacements[i][0], replacements[i][1].toLowerCase())
     }
 
     output.value = string
