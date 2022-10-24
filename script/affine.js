@@ -1,7 +1,9 @@
 import multiplication from "./methods/cipher/multiplication.js"
 import addition from "./methods/cipher/addition.js"
 
-import score from "./methods/cipher/score.js"
+import score from "./methods/validation/score.js"
+
+import alphabet from "./methods/references/alphabet.js"
 
 import greatestCommonDivisor from "./methods/modular/greatestCommonDivisor.js"
 import multiplicativeInverse from "./methods/modular/multiplicativeInverse.js"
@@ -18,13 +20,11 @@ const x = {
     intercept: q("input.intercept")
 }
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
-
-const encrypt = (text, a, b) => { return addition(alphabet, multiplication(alphabet, text, a), b).toUpperCase() }
-const decrypt = (text, a, b) => { return multiplication(alphabet, addition(alphabet, text, -b), multiplicativeInverse(a, alphabet.length)).toLowerCase() }
+const encrypt = (text, a, b) => { return addition(multiplication(text, a), b).toUpperCase() }
+const decrypt = (text, a, b) => { return multiplication(addition(text, -b), multiplicativeInverse(a, alphabet.length)).toLowerCase() }
 
 const bruteForce = (text) => {
-    let winning = { score: 0, a: 0, b: 0 }
+    const winning = { score: 0, a: 0, b: 0 }
 
     for (let a = 0; a < 26; a++) {
         if (greatestCommonDivisor(a, alphabet.length) == 1) {

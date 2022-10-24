@@ -1,6 +1,8 @@
 import modulus from "../modular/modulus.js"
 
-const addition = (alphabet, text, multiplier) => {
+import alphabet from "../references/alphabet.js"
+
+const addition = (text, multiplier) => {
     let result = ""
     const split = text.toLowerCase().split("")
 
