@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -8,7 +6,7 @@ body {
     margin: 0;
     color: #101010;
     background-color: #e1e3e4;
-    font-family: "Roboto Mono", monospace;
+    font-family: Consolas, Courier, monospace;
 }
 
 textarea {
@@ -81,6 +79,7 @@ a {
     width: 100%;
     display: flex;
     gap: 1rem;
+    font-size: 0.875rem;
 }
 
 .parameter {
